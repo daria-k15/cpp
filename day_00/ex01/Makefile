@@ -1,21 +1,33 @@
 NAME = phonebook
-
 SRCS = phonebook.cpp utils.cpp		
-
-OBJS = $(SRCS:.cpp=.o)
-
+HEADER = phonebook.h
 FLAGS = -Wall -Wextra -Werror --std=c++98
+
+OBJS_DIR = obj/
+OBJ_LIST = $(patsubst %.cpp, %.o, $(SRCS))
+OBJS = $(addprefix $(OBJS_DIR), $(OBJ_LIST))
+
+# Colors
+GREEN = \033[0;32m
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	g++ $(FLAGS) -o $(NAME) $(OBJS)
+$(NAME): $(OBJS) $(HEADER)
+	@g++ $(FLAGS) $(OBJS) -o $(NAME) 
+	@echo "$(GREEN)Project was successfully built"$(RESET)
+
+$(OBJS_DIR)%.o : %.cpp $(HEADER)
+	@mkdir -p $(OBJS_DIR)
+	@g++ $(FLAGS) -c $< -o $@
+
 
 clean:
-	rm -f $(OBJS)
+	@rm -rf $(OBJS_DIR)
+	@echo "$(GREEN)Object files were deleted"$(RESET)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@echo "$(GREEN)Deleted all files"$(RESET)
 
 .PHONY: all clean fclean re
 

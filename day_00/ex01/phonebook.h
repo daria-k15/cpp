@@ -9,23 +9,22 @@ class Phonebook {
     private:
         std::string firstName;
         std::string lastName;
+        std::string nickname;
         std::string phoneNumber;
-        std::string email;
-        std::string address;
-        std::string birthday;
+        std::string darkestSecret;
+       
     public:
         std::string getFirstName(){return (firstName);}
         void setFirstName(std::string firstName){this->firstName = firstName;}
         std::string getLastName(){return (lastName);}
         void setLatsName(std::string lastName){this->lastName = lastName;}
+        std::string getNickname(){return (nickname);}
+        void setNickname(std::string nickname){this->nickname = nickname;}
         std::string getPhoneNumber(){return (phoneNumber);}
-        void setPhoneNumber(std::string getPhoneNumber){this->phoneNumber = phoneNumber;}
-        std::string getEmail(){return (email);}
-        void setEmail(std::string){this->email = email;}
-        std::string getAddress(){return(address);}
-        void setAddress(std::string){this->address = address;}
-        std::string getBirthday(){return(birthday);}
-        void setBirthday(std::string birthday){this->birthday = birthday;}
+        void setPhoneNumber(std::string phoneNumber){this->phoneNumber = phoneNumber;}
+        std::string getDarkestSecret(){return (darkestSecret);}
+        void setDarkestSecret(std::string darkestSecret){this->darkestSecret = darkestSecret;}
+
 };
 
 void add_contact(Phonebook *phonebook);

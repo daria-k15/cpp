@@ -17,10 +17,9 @@ std::string	short_output(std::string str)
 void show_one_contact(Phonebook phonebook){
     std::cout << "First name: " << phonebook.getFirstName() << std::endl;
     std::cout << "Last name: " << phonebook.getLastName() <<  std::endl;
+    std::cout << "Nickname: " << phonebook.getNickname() << std::endl;
     std::cout << "Phone number: " << phonebook.getPhoneNumber() << std::endl;
-    std::cout << "Email: " << phonebook.getEmail() << std::endl;
-    std::cout << "Address: " << phonebook.getAddress() << std::endl;
-    std::cout << "Birthday: " << phonebook.getBirthday() << std::endl;
+    std::cout << "Darkest secret " << phonebook.getDarkestSecret() << std::endl;
 }
 
 void show_contact(Phonebook *phonebook, int count){
@@ -37,6 +36,7 @@ void show_contact(Phonebook *phonebook, int count){
 			<< std::setw(10) << i + 1 << '|'
 			<< std::setw(10) << short_output(phonebook[i].getFirstName()) << '|'
 			<< std::setw(10) << short_output(phonebook[i].getLastName()) << '|'
+            << std::setw(10) << short_output(phonebook[i].getNickname()) << '|'
 			<< std::endl;
 			i++;
 		}
@@ -62,8 +62,8 @@ void add_contact(Phonebook *phonebook){
     std::cout << "Please enter information" << std::endl;
     phonebook->setFirstName(read_and_add("First name: "));
     phonebook->setLatsName(read_and_add("Last name: "));
+    phonebook->setNickname(read_and_add("Nickname: "));
     phonebook->setPhoneNumber(read_and_add("Phone number: "));
-    phonebook->setEmail(read_and_add("Email: "));
-    phonebook->setAddress(read_and_add("Address: "));
-    phonebook->setBirthday(read_and_add("Birthday: "));
+    phonebook->setDarkestSecret(read_and_add("Darkest secret: "));
+
 }

@@ -1,16 +1,5 @@
 #include "phonebook.h"
 
-void replace_and_add(Phonebook *phonebook){
-    int i;
-
-    i = 0;
-    while (i < 7){
-        phonebook[i] = phonebook[i + 1];
-        i++;
-    }
-    std::cout << i << std::endl;
-}
-
 int main(){
     int count;
     int exit;
@@ -28,7 +17,7 @@ int main(){
                 count++;
             }
             else{
-                replace_and_add(phonebook);
+                std::cout << "Table is full :(" << std::endl;
             }
         }
         else if (command == "SEARCH"){
@@ -36,5 +25,7 @@ int main(){
         }
         else if (command == "EXIT")
             exit = 1;
+        else
+            std::cout << "Invalid command:( Try again!" << std::endl;
     }
 }
