@@ -1,0 +1,34 @@
+NAME = weapon
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+HEADER = Weapon.hpp HumanA.hpp HumanB.hpp
+FLAGS = -Wall -Wextra -Werror --std=c++98
+
+OBJS_DIR = obj/
+OBJ_LIST = $(patsubst %.cpp, %.o, $(SRCS))
+OBJS = $(addprefix $(OBJS_DIR), $(OBJ_LIST))
+
+# Colors
+GREEN = \033[0;32m
+
+all: $(NAME)
+
+$(NAME): $(OBJS) $(HEADER)
+	@g++ $(FLAGS) $(OBJS) -o $(NAME) 
+	@echo "$(GREEN)Project was successfully built"$(RESET)
+
+$(OBJS_DIR)%.o : %.cpp $(HEADER)
+	@mkdir -p $(OBJS_DIR)
+	@g++ $(FLAGS) -c $< -o $@
+
+
+clean:
+	@rm -rf $(OBJS_DIR)
+	@echo "$(GREEN)Object files were deleted"$(RESET)
+
+fclean: clean
+	@rm -f $(NAME)
+	@echo "$(GREEN)Deleted all files"$(RESET)
+
+.PHONY: all clean fclean re
+
+re: fclean all
