@@ -60,7 +60,6 @@ int main(int argc, char **argv){
 	std::string file = argv[1];
 	std::string buf;
 	open_file(file, buf);
-	std::cout << buf << std::endl;
 	ft_replace(argv[2], argv[3], buf);
 	file += ".replace";
 	write_to_file(file, buf);
