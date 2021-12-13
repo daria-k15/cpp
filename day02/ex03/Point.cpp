@@ -5,5 +5,5 @@ Point::Point() : x(0), y(0){};
 
 
 std::ostream &operator<<(std::ostream &out, const Point &point){
-    out << point.x << point.y;
+    out << Fixed.x << Fixed.y;
 }
