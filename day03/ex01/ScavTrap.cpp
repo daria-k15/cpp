@@ -20,10 +20,10 @@ ScavTrap::ScavTrap(std::string input){
     attackDamage = 20;
 }
 
-// ScavTrap::ScavTrap(const ScavTrap &scav){
-//     std::cout << "ScavTrap copy constructor called" << std::endl;
-//     *this = scav;
-// }
+ScavTrap::ScavTrap(const ScavTrap &scav){
+    std::cout << "ScavTrap copy constructor called" << std::endl;
+    *this = scav;
+}
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &scav){
     std::cout << "ScavTrap assignation operator called" << std::endl;

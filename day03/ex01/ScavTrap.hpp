@@ -8,7 +8,7 @@ class ScavTrap : public ClapTrap{
         ScavTrap();
         ~ScavTrap();
         ScavTrap(std::string input);
-        // ScavTrap(const ScavTrap &scav);
+        ScavTrap(const ScavTrap &scav);
         ScavTrap & operator=(const ScavTrap &scav);
 
         void guardGate();

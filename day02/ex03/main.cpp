@@ -1,6 +1,6 @@
 #include "Point.hpp"
 
 int main(void){
-    Point a(Fixed(1), Fixed(1));
+    Point a(4.4f, 7.7f);
     std::cout << a << std::endl;
 }

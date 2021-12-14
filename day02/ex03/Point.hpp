@@ -1,5 +1,5 @@
 #ifndef POINT_HPP
-# define PONT_HPP
+# define POINT_HPP
 
 #include <iostream>
 #include <cmath>
@@ -10,9 +10,15 @@ class Point{
         Fixed x;
         Fixed y;
     public:
-        Point(){};
-        Point(const Fixed &x_val, const Fixed &y_val);
-        Point(const Fixed &x_val);
+        Point();
+        ~Point();
+        Point(const float x_val, const float y_val);
+        Point(const Point &other);
+        Point & operator=(const Point &point);
+        Fixed getX(void) const;
+        Fixed getY(void) const;
+        void setX(float x_val) const;
+        void setY(float y_val) const;
 };
 std::ostream &operator<<(std::ostream &os, const Point &point);
 #endif
