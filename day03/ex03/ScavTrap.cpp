@@ -2,33 +2,33 @@
 
 ScavTrap::ScavTrap(){
      std::cout << "ScavTrap default constructor called" << std::endl;
-    name = "no name";
+    name_ = "no name";
     hitpoints = 100;
     energyPoints = 50;
     attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap(){
-     std::cout << "ScavTrap destructor " << name << " called" << std::endl;
+     std::cout << "ScavTrap destructor " << name_ << " called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string input){
-    std::cout << "ScavTrap constructor " << name << " called" << std::endl;
-    name = input;
+    std::cout << "ScavTrap constructor " << name_ << " called" << std::endl;
+    name_ = input;
     hitpoints = 100;
     energyPoints = 50;
     attackDamage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &scav){
-    std::cout << "ScavTrap copy constructor called" << std::endl;
-    *this = scav;
-}
+// ScavTrap::ScavTrap(const ScavTrap &scav){
+//     std::cout << "ScavTrap copy constructor called" << std::endl;
+//     *this = scav;
+// }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &scav){
     std::cout << "ScavTrap assignation operator called" << std::endl;
     if (this != &scav){
-        name = scav.getName();
+        name_ = scav.getName();
         hitpoints = scav.getHitPoints();
         energyPoints = scav.getEnergyPoints();
         attackDamage = scav.getAttackDamage();
@@ -37,10 +37,10 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &scav){
 }
 
 void ScavTrap::attack(std::string const &target){
-    std::cout << "ScavTrap " << name << " attack " 
+    std::cout << "ScavTrap " << name_ << " attacks " 
         << target << ", causing " << attackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate(){
-    std::cout << "ScavTrap " << name << " have enterred in Gate keeper mode" << std::endl;
+    std::cout << "ScavTrap " << name_ << " have enterred in Gate keeper mode" << std::endl;
 }

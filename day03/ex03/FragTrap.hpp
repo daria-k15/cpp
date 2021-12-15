@@ -3,11 +3,11 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap : public ClapTrap{
+class FragTrap : virtual public ClapTrap{
     public:
         FragTrap();
         FragTrap(std::string input);
-        FragTrap(const FragTrap &other);
+        // FragTrap(const FragTrap &other);
         FragTrap & operator=(const FragTrap &frag);
         virtual ~FragTrap();
 
