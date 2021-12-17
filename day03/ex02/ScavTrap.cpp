@@ -25,6 +25,11 @@ ScavTrap::ScavTrap(const ScavTrap &scav){
     *this = scav;
 }
 
+void ScavTrap::attack(std::string const &target){
+    std::cout << "ScavTrap " << name << " attack " 
+        << target << ", causing " << attackDamage << " points of damage!" << std::endl;
+}
+
 ScavTrap &ScavTrap::operator=(const ScavTrap &scav){
     std::cout << "ScavTrap assignation operator called" << std::endl;
     if (this != &scav){
@@ -34,11 +39,6 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &scav){
         attackDamage = scav.getAttackDamage();
     }
     return (*this);
-}
-
-void ScavTrap::attack(std::string const &target){
-    std::cout << "ScavTrap " << name << " attack " 
-        << target << ", causing " << attackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate(){

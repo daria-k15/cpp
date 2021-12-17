@@ -9,8 +9,18 @@ FragTrap::FragTrap(){
 }
 
 FragTrap::FragTrap(const FragTrap &other){
-    std::cout << "FragTrap cope constructor called" << std::endl;
+    std::cout << "FragTrap copy constructor called" << std::endl;
     *this = other;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &frag){
+    if (this != &frag){
+        name = frag.getName();
+        hitpoints = frag.getHitPoints();
+        energyPoints = frag.getEnergyPoints();
+        attackDamage = frag.getAttackDamage();
+    }
+    return(*this);
 }
 
 FragTrap::~FragTrap(){
@@ -23,11 +33,6 @@ FragTrap::FragTrap(const std::string input){
     hitpoints = 100;
     energyPoints = 100;
     attackDamage = 30;
-}
-
-void FragTrap::attack(std::string const &target){
-    std::cout << "FragTrap " << name << " attack " << target 
-    << ", causing " << attackDamage << " points of damage" << std::endl;
 }
 
 void FragTrap::highFivesGuys(){

@@ -129,17 +129,9 @@ Fixed Fixed::operator--(int){
 	return(tmp);
 }
 
-// Fixed &Fixed::min(Fixed &val1, Fixed &val2){
-// 	return(val1 <=val2 ? val1 : val2);
-// }
-
 const Fixed &Fixed::min(const Fixed &val1, const Fixed &val2){
 	return(val1 <=val2 ? val1 : val2);
 }
-
-// Fixed &Fixed::max(Fixed &val1, Fixed &val2){
-// 	return(val1 >= val2 ? val1 : val2);
-// }
 
 const Fixed &Fixed::max(const Fixed &val1, const Fixed &val2){
 	return(val1 >=val2 ? val1 : val2);

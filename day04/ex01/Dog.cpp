@@ -24,3 +24,5 @@ Dog::~Dog(){
 void Dog::makeSound() const {
     std::cout << "Dog make sound: Bow-wow" << std::endl;
 }
+
+const Brain *Dog::getBrain() const{return(this->brain);}

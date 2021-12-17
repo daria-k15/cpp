@@ -1,7 +1,7 @@
 NAME = diamondTrap
 SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 HEADER = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
-FLAGS = -Wall -Wextra -Werror --std=c++98 -pedantic -Wshadow
+FLAGS = -Wall -Wextra -Werror --std=c++98  -Wshadow
 
 OBJS_DIR = obj/
 OBJ_LIST = $(patsubst %.cpp, %.o, $(SRCS))

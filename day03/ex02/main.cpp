@@ -1,7 +1,7 @@
 #include "FragTrap.hpp"
 
 int main(void){
-    ClapTrap john("John");
+    /*ClapTrap john("John");
 
     std::cout << "ClapTrap's name: " << john.getName() << std::endl;
     std::cout << "ClapTrap has: " << john.getHitPoints() << " hitpoints" << std::endl;
@@ -12,7 +12,7 @@ int main(void){
     john.takeDamage(5);
     john.beRepaired(15);
     john.takeDamage(20);
-    john.beRepaired(50);
+    john.beRepaired(50);*/
 
     FragTrap Bob("Bob");
     std::cout << "FragTrap name: " << Bob.getName() << std::endl;

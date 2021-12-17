@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(const ClapTrap &clap){
 ClapTrap &ClapTrap::operator=(const ClapTrap &clap){
     std::cout << "ClapTrap assignation operator called" << std::endl;
     if (this != &clap){
-        name_ = clap.getName();
+        name_ = clap.get_name();
         hitpoints = clap.getHitPoints();
         energyPoints = clap.getEnergyPoints();
         attackDamage = clap.getAttackDamage();
@@ -28,7 +28,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &clap){
     return (*this);
 }
 
-const std::string &ClapTrap::getName(void) const {return(name_);}
+const std::string &ClapTrap::get_name(void) const {return(name_);}
 unsigned int ClapTrap::getHitPoints(void) const {return(hitpoints);}
 unsigned int ClapTrap::getEnergyPoints(void) const {return(energyPoints);}
 unsigned int ClapTrap::getAttackDamage(void) const {return(attackDamage);}
