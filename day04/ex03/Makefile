@@ -1,6 +1,6 @@
-NAME = polymorphism
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
-HEADER = Animal.hpp Dog.hpp Cat.hpp  Brain.hpp
+NAME = interface
+SRCS = main.cpp 
+HEADER = 
 FLAGS = -W -Wextra -Werror --std=c++98
 
 OBJS_DIR = obj/

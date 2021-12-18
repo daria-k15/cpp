@@ -1,7 +1,7 @@
-NAME = polymorphism
+NAME = abstract
 SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
-HEADER = Animal.hpp Dog.hpp Cat.hpp  Brain.hpp
-FLAGS = -W -Wextra -Werror --std=c++98
+HEADER = Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+FLAGS = -Wall -Wextra -Werror --std=c++98
 
 OBJS_DIR = obj/
 OBJ_LIST = $(patsubst %.cpp, %.o, $(SRCS))
