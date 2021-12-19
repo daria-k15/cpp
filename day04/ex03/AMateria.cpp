@@ -1,18 +1,18 @@
 #include "AMateria.hpp"
 
 AMateria::AMateria(){
-    std::cout << "Amateria default constructor called" << std::endl;
+    std::cout << "AMateria default constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const &type) : type_(type){};
 
 AMateria::~AMateria(){
-    std::cout << "Amateria destructor called" << std::endl;
+    std::cout << "AMateria destructor called" << std::endl;
 }
 
 AMateria::AMateria(const AMateria &other){
-    std::cout << "Amateria copy constructor called" << std::endl;
-    *this = other;
+    std::cout << "AMateria copy constructor called" << std::endl;
+    // *this = other;
 }
 
 AMateria &AMateria::operator=(const AMateria &other){
@@ -27,5 +27,5 @@ std::string const &AMateria::getType() const{
 }
 
 void AMateria::use(ICharacter &target){
-    
+    std::cout << "AMateria used for " << target.getName() << " *" << std::endl;
 }

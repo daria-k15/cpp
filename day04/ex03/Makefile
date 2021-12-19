@@ -1,6 +1,6 @@
 NAME = interface
-SRCS = main.cpp 
-HEADER = 
+SRCS = main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
+HEADER = AMateria.hpp Character.hpp Cure.hpp Ice.hpp ICharacter.hpp IMateriaSource.hpp MateriaSource.hpp
 FLAGS = -W -Wextra -Werror --std=c++98
 
 OBJS_DIR = obj/
