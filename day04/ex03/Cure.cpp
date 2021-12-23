@@ -4,7 +4,7 @@ Cure::Cure() : AMateria("cure"){};
 
 Cure::~Cure(){};
 
-// Cure::Cure(const Cure &other){*this = other;}
+Cure::Cure(const Cure &other){*this = other;}
 
 Cure &Cure::operator=(const Cure &other){
     if (this != &other){
@@ -18,5 +18,5 @@ AMateria *Cure::clone() const{
 }
 
 void Cure::use(ICharacter &target){
-    std::cout << "heals " << target.getName() << "'s wounds" << std::endl;
+    std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

@@ -13,9 +13,9 @@ Character::~Character(){
     }
 }
 
-// Character::Character(const Character &other) : AMateria(other){
-//     *this = other;
-// }
+Character::Character(const Character &other){
+    *this = other;
+}
 
 Character::Character(std::string name) : name_(name){
     for (int i= 0; i < NUM; i++){

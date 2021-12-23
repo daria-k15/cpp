@@ -12,12 +12,13 @@ AMateria::~AMateria(){
 
 AMateria::AMateria(const AMateria &other){
     std::cout << "AMateria copy constructor called" << std::endl;
-    // *this = other;
+    *this = other;
 }
 
 AMateria &AMateria::operator=(const AMateria &other){
     if (this != &other){
-        this->type_ = other.getType();
+        std::cout << "Copying the type doesn't make sense..." << std::endl;
+        this->type_ = "";
     }
     return (*this);
 }

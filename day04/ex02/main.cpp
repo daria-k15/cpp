@@ -9,7 +9,7 @@ int main(void){
 
     Animal *i = new Cat();
     Animal *j = new Dog();
-    *i = *j;
+    // *i = *j;
     delete i;
     delete j;
 

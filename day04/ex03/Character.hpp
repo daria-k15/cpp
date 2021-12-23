@@ -13,7 +13,7 @@ class Character : public ICharacter{
         Character();
     public:
         virtual ~Character();
-        // Character(const Character &other);
+        Character(const Character &other);
         Character & operator=(const Character &other);
         Character(std::string name);
         const AMateria *getMateria(int index) const;

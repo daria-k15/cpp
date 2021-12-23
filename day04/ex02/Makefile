@@ -13,12 +13,12 @@ GREEN = \033[0;32m
 all: $(NAME)
 
 $(NAME): $(OBJS) $(HEADER)
-	@g++ $(FLAGS) $(OBJS) -o $(NAME) 
+	@clang++ $(FLAGS) $(OBJS) -o $(NAME) 
 	@echo "$(GREEN)Project was successfully built"$(RESET)
 
 $(OBJS_DIR)%.o : %.cpp $(HEADER)
 	@mkdir -p $(OBJS_DIR)
-	@g++ $(FLAGS) -c $< -o $@
+	@clang++ $(FLAGS) -c $< -o $@
 
 
 clean:
