@@ -32,7 +32,6 @@ static bool isChar(const std::string &value){
 static bool isInt(const std::string &value){
 	int i = 0;
 	std::string::size_type len = value.length();
-	// std::cout << len << std::endl;
 
 	if (value[i] == '0'){
 		if (len == 1)
@@ -97,17 +96,6 @@ static bool isFloat(const std::string &value){
 	return(false);
 }
 
-void ScalarConv::checkOverf(){
-	if (value < std::numeric_limits<char>::min() || value > std::numeric_limits<char>::max())
-		char_overf = true;
-	else if(value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
-		int_overf = true;
-	else if(value < std::numeric_limits<float>::min() || value > std::numeric_limits<float>::max())
-		float_overf = true;
-	else if (value < std::numeric_limits<double>::min() || value > std::numeric_limits<double>::max())
-		double_overf = true;
-}
-
 ScalarConv::Types ScalarConv::checkType(){
 	const std::string inputV = getInputValue();
 	if (inputV == "-inf" || inputV == "-inff")
@@ -129,43 +117,71 @@ ScalarConv::Types ScalarConv::checkType(){
 
 void ScalarConv::printInt(){
 	std::cout << "int: " << std::flush;
-	int print = static_cast<int>(value);
+	if (type_ == 0 || type_ == 1 || type_ == 2)
+		std::cout << "impossible" << std::endl;
+	else if (value >= -2147483648 && value <= 2147483647){
+		int print = static_cast<int>(value);
 		std::cout << print << std::endl;
+	}else {
+		std::cout << "impossible" << std::endl;
+	}
 }
 
 void ScalarConv::printChar(){
 	std::cout << "char: " << std::flush;
-	char print = static_cast<char>(value);
+	if (type_ == 0 || type_ == 1 || type_ == 2)
+		std::cout << "impossible" << std::endl;
+	else if (value >= 0 && value < 32)
+		std::cout << "Non displayable" << std::endl;
+	else if (value >= 32 && value <= 127){
+		char print = static_cast<char>(value);
 		std::cout << print << std::endl;
+	} else {
+		std::cout << "impossible" << std::endl;
+	}
 }
 
 void ScalarConv::printDouble(){
 	std::cout << "double: " << std::flush;
-	double d_val = value;
-	int pos = 0;
-	if (std::floor(d_val) == d_val)
-		pos = 1;
+	if (type_ == 0)
+		std::cout << "+inf" << std::endl;
+	else if (type_ == 1)
+		std::cout << "-inf" << std::endl;
+	else if (type_ == 2)
+		std::cout << "nan" << std::endl;
+		else if (value == 0)
+		std::cout << value << ".0" << std::endl;
+	else if (value < std::numeric_limits<double>::min() || value > std::numeric_limits<double>::max())
+		std::cout << "impossible" << std::endl;
+	else if (value - static_cast<int>(value) == 0){
+		std::cout << value << ".0" << std::endl;
+	}
 	else
-		pos = 10;
-	std::cout << std::fixed << std::setprecision(pos) << d_val << std::endl;
-	
+		std::cout << value << std::endl;
 }
 
 void ScalarConv::printFloat(){
 	std::cout << "float: " << std::flush;
-	double d_val = value;
-	int pos = 0;
-	if (std::floor(d_val) == d_val)
-		pos = 1;
-	else
-		pos = 10;
-	std::cout << std::fixed << std::setprecision(pos) << d_val << "f"<< std::endl;
-	
+	float print = static_cast<float>(value);
+	if (type_ == 0)
+		std::cout << "+inff" << std::endl;
+	else if (type_ == 1)
+		std::cout << "-inff" << std::endl;
+	else if (type_ == 2)
+		std::cout << "nanf" << std::endl;
+	else if (print == 0)
+		std::cout << print << ".0f" << std::endl;
+	else if (print < std::numeric_limits<float>::min() || print > std::numeric_limits<float>::max())
+		std::cout << "impossible" << std::endl;
+	else if(value - static_cast<int>(print) == 0){
+		std::cout << print << ".0f" << std::endl;
+	} else
+		std::cout << print << "f" << std::endl;
 }
 
 void ScalarConv::printAll(){
-	printInt();
 	printChar();
+	printInt();
 	printFloat();
 	printDouble();
 }
@@ -174,12 +190,10 @@ void ScalarConv::convert(){
 	std::istringstream conv(input_value_);
 
 	type_ = checkType();
-	std::cout << type_ << std::endl;
 	if (type_ == Char){
 		value = static_cast<double>(input_value_[0]);
 	} else {
 		conv >> value;
 	}
-	checkOverf();
 	printAll();
 }

@@ -39,7 +39,6 @@ class ScalarConv{
 		ScalarConv();
 		Types type_;
 		Types checkType();
-		void checkOverf();
 		double value;
 		void printAll();
 		void printInt();

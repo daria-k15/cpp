@@ -1,7 +1,7 @@
-NAME = ex00
-SRCS = main.cpp ScalarConv.cpp
-HEADER = ScalarConv.hpp
-FLAGS = -W -Wextra -Werror --std=c++98 -g
+NAME = ex01
+SRCS = main.cpp serialize.cpp
+HEADER = serialize.hpp
+FLAGS = -Wall -Wextra -Werror --std=c++98 -g
 
 OBJS_DIR = obj/
 OBJ_LIST = $(patsubst %.cpp, %.o, $(SRCS))
