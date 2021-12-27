@@ -1,6 +1,6 @@
 NAME = ex01
-SRCS = main.cpp serialize.cpp
-HEADER = serialize.hpp
+SRCS = main.cpp 
+HEADER = iter.hpp
 FLAGS = -Wall -Wextra -Werror --std=c++98 -g
 
 OBJS_DIR = obj/
