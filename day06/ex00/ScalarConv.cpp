@@ -180,10 +180,14 @@ void ScalarConv::printFloat(){
 }
 
 void ScalarConv::printAll(){
-	printChar();
-	printInt();
-	printFloat();
-	printDouble();
+	if (type_ == 7)
+		std::cout << "Invalid input" << std::endl;
+	else{
+		printChar();
+		printInt();
+		printFloat();
+		printDouble();
+	}
 }
 
 void ScalarConv::convert(){
